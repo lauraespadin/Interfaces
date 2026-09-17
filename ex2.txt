@@ -1,0 +1,46 @@
+public abstract class Arma
+    {
+        public string Nome { get; set; }
+        public double DanoBase { get; set; }
+      
+        public void ExibirInfo()
+        {
+            Console.WriteLine($"Nome: {Nome}");
+            Console.WriteLine($"Dano: {DanoBase}");
+        }
+        public abstract double CalcularAtaqueCritico();
+    }
+
+ public class Espada : Arma
+    {
+        public override double CalcularAtaqueCritico()
+        {
+            return DanoBase * 2;
+        }
+    }
+
+public class Arco : Arma
+    {
+        public override double CalcularAtaqueCritico()
+        {
+            return DanoBase * 3;
+        }
+    }
+
+Espada espada = new Espada();
+            espada.Nome = "Espada de Ferro";
+            espada.DanoBase = 50;
+
+            Arco arco = new Arco();
+            arco.Nome = "Arco de Madeira";
+            arco.DanoBase = 30;
+
+            Console.WriteLine(" ESPADA ");
+            espada.ExibirInfo();
+            Console.WriteLine($"Ataque crítico: {espada.CalcularAtaqueCritico()}");
+
+            Console.WriteLine();
+
+            Console.WriteLine(" ARCO ");
+            arco.ExibirInfo();
+            Console.WriteLine($"Ataque crítico: {arco.CalcularAtaqueCritico()}"); 

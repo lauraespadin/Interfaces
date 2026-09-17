@@ -1,0 +1,37 @@
+ public interface ICamera
+    {
+        void TirarFoto();
+    }
+
+ public interface IVoavel
+    {
+        void Decolar();
+        void Pousar();
+    }
+
+    public class Drone : ICamera, IVoavel
+    {
+        public void TirarFoto()
+        {
+            Console.WriteLine("Tirando foto panorâmica...");
+        }
+
+        public void Decolar()
+        {
+            Console.WriteLine("Drone decolando verticalmente..");
+        }
+
+        public void Pousar()
+        {
+            Console.WriteLine("Drone pousando...");
+        }
+    }
+
+Drone drone = new Drone();
+
+            ICamera camera = drone;
+            camera.TirarFoto();
+
+            IVoavel voavel = drone;
+            voavel.Decolar();
+            voavel.Pousar();
